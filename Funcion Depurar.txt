@@ -1,0 +1,58 @@
+USE [ETB]
+GO
+
+/****** Object:  UserDefinedFunction [dbo].[F_Eliminar_C]    Script Date: 3/5/2018 11:59:50 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE FUNCTION [dbo].[F_Eliminar_C] (@Cadena Varchar(100),@Ind_nombre Tinyint)
+  RETURNS Varchar(100)
+  AS
+  BEGIN
+  DECLARE @position int, @string char(100), @Cadena_Out varchar(100), @Caracter char(1)
+  SET @position = 1
+  set @Cadena_Out = ''
+  SET @string = @Cadena
+
+  IF @Ind_nombre=1
+  WHILE @position <= DATALENGTH(@string)
+  BEGIN 
+   --select
+   --ASCII(SUBSTRING(@string, @position, 1))valor_ascii,
+   --CHAR(ASCII(SUBSTRING(@string, @position, 1)))caracter
+   --where ASCII(SUBSTRING(@string, @position, 1)) between 65 and 90 
+   -- or ASCII(SUBSTRING(@string, @position, 1)) between 97 and 122
+   -- or ASCII(SUBSTRING(@string, @position, 1)) = 127
+   
+   Set @Caracter=(char(ASCII(SUBSTRING(@string, @position, 1))))
+   set @Caracter = (case when ASCII(SUBSTRING(@string, @position, 1)) between 65 and 90 or ASCII(SUBSTRING(@string, @position, 1)) between 97 and 122 or ASCII(SUBSTRING(@string, @position, 1)) = 127 then char(ASCII(SUBSTRING(@string, @position, 1))) else '' end)
+   Set @Cadena_Out = @Cadena_Out + @Caracter 
+   SET @position = @position + 1
+  END
+  ELSE
+  IF @Ind_nombre=2
+  WHILE @position <= DATALENGTH(@string)
+  BEGIN    
+   Set @Caracter=(char(ASCII(SUBSTRING(@string, @position, 1))))
+   set @Caracter = (case when ASCII(SUBSTRING(@string, @position, 1)) between 64 and 90 or ASCII(SUBSTRING(@string, @position, 1)) between 97 and 122 or ASCII(SUBSTRING(@string, @position, 1)) = 127 or (ascii(@Caracter)>=48 and ascii(@Caracter)<=57) then char(ASCII(SUBSTRING(@string, @position, 1))) else '' end)
+   Set @Cadena_Out = @Cadena_Out + @Caracter 
+   SET @position = @position + 1
+  END
+  ELSE
+  IF @Ind_nombre=3
+  WHILE @position <= DATALENGTH(@string)
+  BEGIN    
+   Set @Caracter=(char(ASCII(SUBSTRING(@string, @position, 1))))
+   set @Caracter = (case when ASCII(SUBSTRING(@string, @position, 1)) = 127 or (ascii(@Caracter)>=48 and ascii(@Caracter)<=57) then char(ASCII(SUBSTRING(@string, @position, 1))) else '' end)
+   Set @Cadena_Out = @Cadena_Out + @Caracter 
+   SET @position = @position + 1
+  END
+  --print 'La cadena es: '+ @Cadena_Out
+  Return @Cadena_Out
+  End
+GO
+
+

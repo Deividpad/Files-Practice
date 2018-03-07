@@ -1,0 +1,26 @@
+SELECT *
+into 
+FROM [dbo].[AsignacionesCucuta]
+
+select top 100 * from [dbo].[SuscripcionesLLanos]
+
+
+
+Para hacer un backup
+SELECT *
+into [AsignacionesCucuta_v2]
+FROM [dbo].[AsignacionesCucuta]
+
+
+--Crear una funcion--
+Create function IVA (@cantidad money)
+Returns money
+as
+Begin
+	Declare @resultado money
+	set @resultado = @cantidad * 0.12
+	Return(@resultado)
+end
+
+Select cantidad, dbo.IVA(cantidad) AS Multi
+From pruebaETL
