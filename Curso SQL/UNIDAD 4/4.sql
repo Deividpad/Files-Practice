@@ -38,3 +38,25 @@ FROM valencia, madrid
 --Toturial consultas multitabla
 --https://www.youtube.com/watch?v=so2Rxg_hhI8
 --https://www.youtube.com/watch?v=M2Ee0HnSPOU
+
+--INNER JOIN--
+-- Listar los códigos y nombres de los empleados de las oficinas del Este con su oficina y ciudad.
+/*SELECT nombre,color,mascota.Propietario nombre
+FROM mascota LEFT JOIN propietario
+ON mascota.Propietario = propietario.idPropietario*/
+
+-- Listar todos los pedidos mostrando su número, importe, nombre de cliente, y el límite de crédito del cliente correspondiente.
+/*SELECT numero,importe,clientes.nombre AS Cliente,limite
+FROM pedidos INNER JOIN clientes
+ON clie=numclie*/
+
+--LET JOIN-- Tabla de la izquierda se refiere a Mascota
+-- Treara todas las mascotas y si no tiene propietario aparecerá  NULL
+SELECT nombre,color,mascota.Propietario nombre
+FROM mascota LEFT JOIN propietario
+ON mascota.Propietario = propietario.idPropietario
+
+
+/*SELECT Clase,Numero_Asiento,pasajero.Nombre
+FROM tiquete RIGHT JOIN pasajero
+ON tiquete.Pasajero_idPasajero = pasajero.idPasajero*/
