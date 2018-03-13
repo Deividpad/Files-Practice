@@ -1,5 +1,7 @@
 --UNIDAD 5
+
 SELECT COUNT(1) FROM [dbo].[tempDatosSaldosParcialesMes1_v4]
+
 --CONSULTAS DE RESUMEN
 --Función SUMA
 --Valor es una comlumna
@@ -26,3 +28,7 @@ SELECT COUNT(DISTINCT Clase) FROM tiquete
 --https://www.youtube.com/watch?v=_GD6uBlA-O0
 --https://www.youtube.com/watch?v=2fyBE_ZzRTY&list=PLNaLkoNIEe9iYZPb3u3020F5R6uu_BfNP
 
+SELECT * 
+FROM [dbo].[valencia]
+
+EXEC sp_rename 'valencia.change', 'full'; 
