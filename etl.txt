@@ -1,18 +1,3 @@
-select top 100 *
-from [dbo].[pruebaerror]
+Video avanzdo de ETL
 
-select top 100 *
-from [dbo].[tempDatosSaldosParcialesMes1_v3]
-
-truncate table [dbo].[tempDatosSaldosParcialesMes1_v3]
---delete [dbo].[tempDatosSaldosParcialesMes1_v3]
-
-
-select *--distinct ErrorColumn
- from p_error where ErrorColumn = '114'
-
-select * from [tempDatosSaldosParcialesMes1]
-
-truncate table p_error
-truncate table [tempDatosSaldosParcialesMes1_v3]
-
+https://www.youtube.com/watch?v=83CP7FGB7m4&t=84s
