@@ -1,0 +1,2 @@
+Curso 1 : http://www.aulaclic.es/sql/f_sql.htm
+Curso 2 : https://www.aulaclic.es/sqlserver/index.htm

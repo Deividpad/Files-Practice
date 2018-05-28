@@ -1,4 +1,0 @@
-Convert (INT to STRGING)
-
-Code:
-(new Integer(row1.cod)).toString();
