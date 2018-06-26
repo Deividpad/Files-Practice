@@ -1,0 +1,30 @@
+
+DECLARE @Nombre VARCHAR(MAX) 
+DECLARE @total INT
+DECLARE @x INT
+DECLARE @letra VARCHAR(20)
+DECLARE @palabra VARCHAR(MAX)
+DECLARE @contador INT
+SET @contador=0
+SET @Nombre='5                                        2014-01-03 12:15:53.673 1308848199               A    971                                      751-1000                                          21.79                                    408.43                                   A  pnaula                                            JAPON RIO CENTRO I                                '
+SET @palabra=''
+SET @letra=''
+SET @x=1
+while @x<=len(@nombre)
+BEGIN    
+    SET @letra=SUBSTRING(@nombre,@x,1)  
+    IF(@letra=' ')
+    BEGIN
+        SET @contador=@contador+1   
+    END
+    ELSE
+    BEGIN
+        SET @contador=0
+    END
+    IF(@contador<=1)
+		print 'Before'+@palabra
+      SET @palabra=@palabra + @letra
+SET @x=@x+1
+END
+print @palabra
+
